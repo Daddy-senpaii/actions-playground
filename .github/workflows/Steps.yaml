@@ -1,0 +1,22 @@
+name: Steps Type
+on:
+  workflow_dispatch
+
+jobs:
+  say_hello_default:
+    runs-on: ubuntu-24.04
+    steps:
+      - run: echo "Hello from stage 2 Hello World man. Hope you don't give up"
+  say_hello_python:
+    runs-on: ubuntu-24.04
+    steps:
+      - run: print(" Hello boy this is you from future hope you don't give up")
+        shell: python
+
+  uses-actio:
+    runs-on: ubuntu-24.04
+    steps:
+      uses: actions/hello-world-javascript-action@081a6d193d1dcb38460df1e6927486d748730f9d
+      with:
+        who-to-greet: "Vijay Mehra: daddy-chan of the world"
+        
