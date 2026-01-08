@@ -1,6 +1,6 @@
 name: Steps Type
 on:
-  workflow_dispatch
+  workflow_dispatch:
 
 jobs:
   say_hello_default:
@@ -13,10 +13,10 @@ jobs:
       - run: print(" Hello boy this is you from future hope you don't give up")
         shell: python
 
-  uses-actio:
+  uses-action:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/hello-world-javascript-action@081a6d193d1dcb38460df1e6927486d748730f9d
-      with:
-        who-to-greet: "Vijay Mehra: daddy-chan of the world"
+        with:
+          who-to-greet: "Vijay Mehra: daddy-chan of the world"
         
