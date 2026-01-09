@@ -1,0 +1,24 @@
+name: Level-3
+on:
+  workflow_dispatch:
+jobs:
+  job-a:
+    runs-on: ubuntu-24.04
+    steps:
+      - run: echo "Job A started man"
+      - run: echo "Let's go"
+  job-1:
+    runs-on: ubuntu-24.04
+    needs:
+      - job-a
+    steps:
+      - run: print("Konichiwa Watashi wa Daddy-Senpaii desu")
+        shell: python
+  job-c:
+    runs-on: ubuntu-24.04
+    needs:
+      - job-1
+    steps:
+      - run: echo "Finally DAG Completed man"
+    
+    
