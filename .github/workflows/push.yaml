@@ -13,5 +13,5 @@ jobs:
         run: echo "Push triggered this workflow"
 
       - name: Show branch
-        run: echo "$GITHUB_REF"
+        run: echo "$GITHUB_REF_NAME"
 
