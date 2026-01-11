@@ -1,0 +1,17 @@
+name: Push Demo
+
+on:
+  push:
+    branches:
+      - "example-branch/*"
+
+jobs:
+  push-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Say hello
+        run: echo "Push triggered this workflow"
+
+      - name: Show branch
+        run: echo "$GITHUB_REF"
+
