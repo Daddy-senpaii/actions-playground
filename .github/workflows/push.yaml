@@ -24,4 +24,3 @@ jobs:
 
       - name: Show event name
         run: echo "Event: $GITHUB_EVENT_NAME"
-
