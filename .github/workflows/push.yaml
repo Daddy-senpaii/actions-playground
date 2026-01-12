@@ -12,11 +12,13 @@ on:
       - reopened
 jobs:
   push-job:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     steps:
       - name: Say Hello
         run: echo "Push triggered in this workflow"
+
       - name: Show Branch
         run: echo "$GITHUB_REF_NAME"
+
       - name: Show event name
         run: echo "Event: $GITHUB_EVENT_NAME"
