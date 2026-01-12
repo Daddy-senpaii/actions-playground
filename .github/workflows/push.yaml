@@ -1,26 +1,22 @@
-name: Push Demo
-
+name: Push or Pull demo
 on:
   push:
     branches:
-      - "example-branch/*"
+      - example-branch/*
   pull_request:
     branches:
-      - "main"
+      - main
     types:
       - opened
       - synchronize
       - reopened
-
 jobs:
   push-job:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
-      - name: Say hello
-        run: echo "Push triggered this workflow"
-
-      - name: Show branch
+      - name: Say Hello
+        run: echo "Push triggered in this workflow"
+      - name: Show Branch
         run: echo "$GITHUB_REF_NAME"
-
       - name: Show event name
         run: echo "Event: $GITHUB_EVENT_NAME"
