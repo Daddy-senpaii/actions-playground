@@ -23,4 +23,4 @@ jobs:
         run: echo "$GITHUB_REF_NAME"
       
       - name: Show event name
-      - run:  echo "Event: $GITHUB_EVENT_NAME"
+        run:  echo "Event: $GITHUB_EVENT_NAME"
