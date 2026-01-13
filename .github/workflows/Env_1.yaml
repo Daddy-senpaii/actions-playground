@@ -5,6 +5,7 @@ env:
   WORKFLOW_VAR: I_AM_WORKFLOW_SCOPED
 jobs:
   job-1:
+    runs-on: ubuntu-24.04
     env:
       JOB_VAR: I_AM_JOB_1_SCOPED
     steps:
