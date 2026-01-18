@@ -27,5 +27,5 @@ jobs:
           print("Vijay is here baby")
           import sys
           print(sys.version)
-        shell: python3
+        shell: python
 
