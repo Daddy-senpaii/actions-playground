@@ -1,0 +1,34 @@
+name: "Vijay Mehra Ultimate Workflow"
+on:
+  push:
+    branches: [main]
+    paths:
+      - "app/**"
+  workflow_dispatch:
+env:
+  APP_NAME: MyCoolApp
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    outputs:
+      BUILD_ID: ${{steps.gen.outputs.BUILD_ID}}
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      
+      - name: Generate Build id
+        id: gen
+        run: |
+          echo "BUILD_ID+$RANDOM" >> GITHUB_OUTPUT
+
+  test:
+    runs-on: ubuntu-24.04
+    needs: build
+    steps:
+      - name: Step variable demo
+        env:
+          STEP_VAR: hello-test
+        runs: |
+          echo "App: $APP_NAME"
+          echo "Testing build id: ${{needs.build.outputs.BUILD_ID}}"
+          echo "STEP_VAR: $STEP_VAR"
