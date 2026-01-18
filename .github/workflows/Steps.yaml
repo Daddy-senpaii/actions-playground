@@ -19,4 +19,13 @@ jobs:
       - uses: actions/hello-world-javascript-action@081a6d193d1dcb38460df1e6927486d748730f9d
         with:
           who-to-greet: "Vijay Mehra: daddy-chan of the world"
-        
+  say-python:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: "Print message and python version"
+        run: |
+          print("Vijay is here baby")
+          import sys
+          print(sys.version)
+        shell: python3
+
