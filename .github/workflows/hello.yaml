@@ -8,3 +8,10 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - run: echo "Hello from GitHub Actions!"
+  say-vijay:
+    runs-on: ubuntu-24.04
+    steps:
+      - run: echo "Preety little baby la la la"
+
+
+

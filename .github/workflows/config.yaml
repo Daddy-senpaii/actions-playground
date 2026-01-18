@@ -1,0 +1,45 @@
+name: Workflow and trigger
+on:
+  push:
+    paths:
+      - "config/**"
+jobs:
+  validate-config:
+    runs-on: ubuntu-latest
+    outputs:
+      status: ${{steps.check.outputs.status}}
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Validate config files
+        id: check
+        run: |
+          echo "Checking config/app.env"
+          if [ ! -f config/app.env ]; then
+          echo "config/app.env not found"
+          status=fail
+          echo "status=${status}" >> $GITHUB_OUTPUT
+          exit 0
+
+          fi
+
+          if grep -q "if grep -q "^APP_NAME=" config/app.env && grep -q "^PORT=" config/app.env; then
+            echo "Config is valid"
+            echo "status=ok" >> $GITHUB_OUTPUT
+          else
+            echo "Missing required keys"
+            echo "status=fail" >> $GITHUB_OUTPUT
+          fi
+    next-step:
+      runs-on: ubuntu-latest
+      needs: validate-config
+      if: needs.validate-config.outputs.status == "ok"
+      
+      steps:
+        - name: Continue pipeline
+          run: echo "Config is valid. Continuing pipeline"
+
+    
+  
