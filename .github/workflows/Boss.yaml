@@ -28,7 +28,7 @@ jobs:
       - name: Step variable demo
         env:
           STEP_VAR: hello-test
-        runs: |
+        run: |
           echo "App: $APP_NAME"
           echo "Testing build id: ${{needs.build.outputs.BUILD_ID}}"
           echo "STEP_VAR: $STEP_VAR"
